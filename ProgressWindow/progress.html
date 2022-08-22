@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <style>
+            body {
+                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                overflow: hidden;
+                margin: 0;
+                background-color: #222222;
+            }
+
+            #messageContainer {
+                display: block;
+                margin: 10px;
+                height: calc(100vh - 55px);
+                width: calc(100% - 20px);
+                overflow-y: auto;
+            }
+
+            #message {
+                display: inline-block;
+                color: white;
+                font-family: monospace;
+                font-weight: lighter;
+                font-size: 14px;
+            }
+
+            #progressContainer {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                right: 20px;
+                height: 15px;
+                border-radius: 7.5px;
+                background-color: #333333;
+            }
+
+            #progress {
+                height: 15px;
+                background-color: #2080ff;
+                border-radius: 7.5px;
+                overflow: hidden;
+                text-align: center;
+                line-height: 13px;
+            }
+
+            #progressText {
+                color: white;
+                font-weight: normal;
+                font-size: 13px;
+                user-select: none;
+            }
+        </style>
+    </head>
+    <body draggable="false">
+        <div id="messageContainer">
+            <span id="message"></span>
+        </div>
+
+        <div id="progressContainer">
+            <div style="width: 0%" id="progress"><span id="progressText"></span></div>
+        </div>
+
+        <script>
+            const messageElement = document.getElementById("message");
+            const progressElement = document.getElementById("progress");
+            const progressTextElement = document.getElementById("progressText");
+
+            const onMessageChange = (message) => {
+                messageElement.innerHTML = message;
+            };
+
+            const onPercentageChange = (percentage) => {
+                progressElement.style.width = `${percentage}%`;
+                progressTextElement.innerText = `${percentage.toFixed(3)}%`;
+            };
+
+            const onFail = () => {
+                progressElement.style.width = `100%`;
+                progressElement.style.backgroundColor = `#ff0000`;
+                progressTextElement.innerText = `FAILED`;
+            };
+
+            window.setEvents({
+                onMessageChange,
+                onPercentageChange,
+                onFail,
+            });
+        </script>
+    </body>
+</html>

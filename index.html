@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Minecraft resource randomizer</title>
+        <link rel="stylesheet" type="text/css" href="./renderer/notiflix-3.2.5.min.css" />
+    </head>
+    <body>
+        <h1>Welcome to this great project</h1>
+        I didn't spend much time on the ui.
+
+        <br /><br />
+
+        Randomize textures
+        <input checked disabled style="cursor: not-allowed" type="checkbox" id="randomize-textures" />
+        <br />
+        Randomize sounds (soon (hopefully))
+        <input disabled style="cursor: not-allowed" type="checkbox" id="randomize-sounds" />
+        <br />
+        Version:
+        <select id="version">
+            <option value="1.19">1.19</option>
+        </select>
+
+        <br /><br />
+
+        <button onclick="Generate();">Generate!</button>
+
+        <br /><br /><br /><br /><br /><br />
+
+        <h1>FAQ</h1>
+        <h3>Why it's so slow?</h3>
+        Because quality.
+
+        <br /><br /><br />
+
+        End of FAQ.
+
+        <script src="./renderer/notiflix-3.2.5.min.js"></script>
+        <script src="./renderer/script.js"></script>
+    </body>
+</html>

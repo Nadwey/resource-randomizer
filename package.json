@@ -1,0 +1,20 @@
+{
+  "name": "resource-randomizer",
+  "version": "1.0.0-alpha.1",
+  "description": "Program that randomizes resources in minecraft",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Nadwey",
+  "devDependencies": {
+    "electron": "^20.0.3"
+  },
+  "dependencies": {
+    "archiver": "^5.3.1",
+    "electron-is-dev": "^2.0.0",
+    "electronbb": "^1.0.0-beta.3",
+    "fs-extra": "^10.1.0",
+    "sharp": "^0.30.7"
+  }
+}
