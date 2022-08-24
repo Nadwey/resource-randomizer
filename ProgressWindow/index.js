@@ -85,7 +85,7 @@ class ProgressWindow {
      * Closes progress window
      */
     close() {
-        this.window.close();
+        this.window.destroy();
     }
 
     /**

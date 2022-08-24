@@ -6,7 +6,7 @@ require("./randomizer")();
 function createWindow() {
     const win = new BrowserWindow({
         width: 800,
-        height: 520,
+        height: 560,
         webPreferences: {
             preload: path.join(__dirname, "preload.js"),
             sandbox: false

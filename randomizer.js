@@ -28,7 +28,7 @@ function getFiles(dir, files_) {
     return files_;
 }
 
-const Randomize = async (randomizeTextures, randomizeSounds, version) => {
+const Randomize = async (randomizeTextures, randomizeSounds, version, resMultipier) => {
     const progressWindow = await ProgressWindow.Create({
         title: "Creating your beautiful resource pack...",
     });
@@ -57,7 +57,7 @@ const Randomize = async (randomizeTextures, randomizeSounds, version) => {
 
         fs.mkdirSync(path.dirname(path.join(outResourcePackDirectory, shuffledFile)), { recursive: true });
         await sharp(path.join(originalFilesDirectory, file))
-            .resize(shuffledMetadata.width * 8, shuffledMetadata.height * 8, {
+            .resize(shuffledMetadata.width * resMultipier, shuffledMetadata.height * resMultipier, {
                 fit: "fill",
             })
             .toFile(path.join(outResourcePackDirectory, shuffledFile));
@@ -75,9 +75,9 @@ const Randomize = async (randomizeTextures, randomizeSounds, version) => {
     archive.directory(outResourcePackDirectory, "");
     await archive.finalize();
 
-    shell.showItemInFolder(path.resolve(`./Randomized.zip`));
-
     progressWindow.close();
+    shell.showItemInFolder(path.resolve(`./Randomized.zip`));
+    
     return path.resolve(`./Randomized.zip`);
 };
 
