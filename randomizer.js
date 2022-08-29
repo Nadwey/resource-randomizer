@@ -7,6 +7,7 @@ const sharp = require("sharp");
 const archiver = require("archiver");
 const { shell } = require("electron");
 
+/**@param {any[]} array*/
 const shuffle = (array) =>
     array
         .map((value) => ({ value, sort: Math.random() }))
