@@ -7,10 +7,11 @@ const sharp = require("sharp");
 const archiver = require("archiver");
 const { shell } = require("electron");
 
-const shuffle = array => array
-    .map((value) => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value);
+const shuffle = (array) =>
+    array
+        .map((value) => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value);
 
 function getFiles(dir, files_) {
     files_ = files_ || [];
@@ -75,7 +76,7 @@ const Randomize = async (randomizeTextures, randomizeSounds, version, resMultipi
 
     progressWindow.close();
     shell.showItemInFolder(path.resolve(`./Randomized.zip`));
-    
+
     return path.resolve(`./Randomized.zip`);
 };
 
