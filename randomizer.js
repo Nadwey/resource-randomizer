@@ -44,10 +44,10 @@ const Randomize = async (randomizeTextures, randomizeSounds, version, resMultipi
     fs.copySync(path.join(__dirname, "resource-packs-templates", version), outResourcePackDirectory);
 
     progressWindow.setMessage("Randomizing...");
-    let shuffledFiles = shuffle(originalFiles);
+    const shuffledFiles = shuffle(originalFiles);
 
     let i = 0;
-    for await (let file of originalFiles) {
+    for await (const file of originalFiles) {
         const shuffledFile = shuffledFiles[i];
         const shuffledMetadata = await sharp(path.join(originalFilesDirectory, shuffledFile)).metadata();
 
@@ -81,6 +81,6 @@ const Randomize = async (randomizeTextures, randomizeSounds, version, resMultipi
 };
 
 module.exports = () => {
-    let mainBridge = new MainBridge();
+    const mainBridge = new MainBridge();
     mainBridge.Export("Randomize", Randomize);
 };
