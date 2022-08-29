@@ -4,12 +4,10 @@
         <meta charset="UTF-8" />
         <title>Minecraft resource randomizer</title>
         <link rel="stylesheet" type="text/css" href="./renderer/notiflix-3.2.5.min.css" />
+        <link rel="stylesheet" type="text/css" href="./renderer/styles.css" />
     </head>
     <body>
         <h1>Welcome to this great project</h1>
-        I didn't spend much time on the ui.
-
-        <br /><br />
 
         Randomize textures
         <input checked disabled style="cursor: not-allowed" type="checkbox" id="randomize-textures" />
@@ -20,15 +18,16 @@
         Version:
         <select id="version">
             <option value="1.19">1.19</option>
+            <option value="1.19">1.19</option>
         </select>
         <br />
-        <input value="8" oninput="this.value = Math.max(0, Math.min(this.value, 64))" type="number" min="0" max="64" id="resolution-multiplier" style="width: 300px;" placeholder="resolution multiplier" />
+        <input type="text" value="8" oninput="this.value = Math.max(0, Math.min(this.value, 64))" type="number" min="0" max="64" id="resolution-multiplier" style="width: 300px;" placeholder="resolution multiplier" />
 
         <br /><br />
 
         <button onclick="Generate();">Generate!</button>
 
-        <br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br />
 
         <h1>FAQ</h1>
         <h3>Why it's so slow?</h3>

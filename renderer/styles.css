@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "Quicksand";
+    src: url(./Quicksand/Quicksand-VariableFont_wght.ttf);
+    font-weight: bold;
+}
+
+body {
+    font-family: "Quicksand";
+    background-color: #121212;
+    color: white;
+}
+
+input {
+    background-color: #232323;
+    border: none;
+    font-family: "Quicksand";
+    padding: 5px;
+    color: white;
+    outline: none;
+}
+
+input[type=text] {
+    border-bottom: solid 1px #232323;
+    transition: 0.2s;
+}
+
+input[type=text]:focus {
+    border-bottom: solid 1px #2080ff;
+}
+
+
+
+select {
+    background-color: #232323;
+    color: white;
+}
+
+button {
+    font-family: "Quicksand";
+    background-color: #2177e9;
+    outline: none;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-size: 17px;
+    color: white;
+}

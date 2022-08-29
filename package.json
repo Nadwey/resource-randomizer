@@ -8,7 +8,7 @@
   },
   "author": "Nadwey",
   "devDependencies": {
-    "electron": "^20.0.3"
+    "electron": "^20.1.0"
   },
   "dependencies": {
     "archiver": "^5.3.1",
