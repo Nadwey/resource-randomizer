@@ -15,7 +15,7 @@ class ProgressWindow {
      * @param {ProgressWindowOptions} options
      */
     static async Create(options) {
-        let progressWindow = new ProgressWindow();
+        const progressWindow = new ProgressWindow();
 
         progressWindow.window = new BrowserWindow({
             title: options.title,

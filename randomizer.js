@@ -7,18 +7,18 @@ const sharp = require("sharp");
 const archiver = require("archiver");
 const { shell } = require("electron");
 
-function shuffle(array) {
-    return array
+/**@param {any[]} array*/
+const shuffle = (array) =>
+    array
         .map((value) => ({ value, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
         .map(({ value }) => value);
-}
 
 function getFiles(dir, files_) {
     files_ = files_ || [];
-    var files = fs.readdirSync(dir);
-    for (var i in files) {
-        var name = dir + "/" + files[i];
+    const files = fs.readdirSync(dir);
+    for (const i in files) {
+        const name = dir + "/" + files[i];
         if (fs.statSync(name).isDirectory()) {
             getFiles(name, files_);
         } else {
@@ -45,10 +45,10 @@ const Randomize = async (randomizeTextures, randomizeSounds, version, resMultipi
     fs.copySync(path.join(__dirname, "resource-packs-templates", version), outResourcePackDirectory);
 
     progressWindow.setMessage("Randomizing...");
-    let shuffledFiles = shuffle(originalFiles);
+    const shuffledFiles = shuffle(originalFiles);
 
     let i = 0;
-    for await (let file of originalFiles) {
+    for await (const file of originalFiles) {
         const shuffledFile = shuffledFiles[i];
         const shuffledMetadata = await sharp(path.join(originalFilesDirectory, shuffledFile)).metadata();
 
@@ -77,11 +77,11 @@ const Randomize = async (randomizeTextures, randomizeSounds, version, resMultipi
 
     progressWindow.close();
     shell.showItemInFolder(path.resolve(`./Randomized.zip`));
-    
+
     return path.resolve(`./Randomized.zip`);
 };
 
 module.exports = () => {
-    let mainBridge = new MainBridge();
+    const mainBridge = new MainBridge();
     mainBridge.Export("Randomize", Randomize);
 };
